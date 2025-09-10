@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Team Synergy • Gesprächsstarter</title>
+<style>
+:root{
+  --paper:#fff;--card:#fff;--gold:#cfa435;--blue:#2a5298;
+  --fg:#334155;--fg-strong:#0f172a;--fg-soft:#64748b;
+  --bd:#e5e7eb;--div:#f1f5f9;--r:14px;--e:cubic-bezier(.2,.8,.16,1)
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--fg);
+     font:500 16px/1.6 Inter,ui-sans-serif,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
+.wrap{max-width:1000px;margin:0 auto;padding:42px 20px}
+.head{display:flex;gap:12px;align-items:flex-start;margin-bottom:12px}
+.seal{width:56px;height:56px;border-radius:12px;object-fit:cover;border:1px solid var(--bd)}
+h1{margin:0;font-size:2rem;color:var(--fg-strong)}
+.sub{margin-top:2px;color:var(--fg-soft)}
+
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 14px}
+.btn{appearance:none;border:1px solid var(--bd);background:#fff;color:var(--fg-strong);
+     padding:10px 14px;border-radius:12px;font-weight:700;cursor:pointer;transition:all .2s var(--e)}
+.btn:hover{border-color:var(--blue)}
+.btn[aria-pressed="true"]{border-color:var(--blue);background:#f8fafc}
+
+.section{border:1px solid var(--bd);border-radius:var(--r);background:var(--card);
+         padding:18px 20px;margin-bottom:14px}
+.section h2{margin:.2rem 0 .6rem;font-size:1.2rem;color:var(--fg-strong)}
+
+.pat{padding:12px 0;border-top:1px dashed var(--div)}
+.pat:first-of-type{border-top:none}
+.pat h3{margin:.1rem 0 .35rem;font-size:1.02rem;color:var(--fg-strong)}
+.muted{margin:0 0 .45rem;color:var(--fg-soft);font-size:.95rem}
+.ex{background:#f0f7ff;border-left:3px solid var(--blue);padding:10px 12px;border-radius:6px;
+    font-style:italic}
+.tip{margin-top:8px;font-size:.93rem;color:#3b4a64}
+.copy{margin-top:8px}
+.copy .btn{padding:7px 10px;font-weight:600;border-radius:10px}
+
+.no{background:#fff5f5;border:1px solid #fee2e2;border-left:4px solid #ef4444;
+    border-radius:10px;padding:10px 12px;margin:8px 0}
+.note{margin-top:10px;color:var(--fg-soft);font-size:.95rem}
+.hidden{display:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="head">
+    <img src="./logo.png" alt="Logo" class="seal">
+    <div>
+      <h1>Gesprächsstarter • Team Synergy</h1>
+      <div class="sub">Beginne Gespräche, die verbinden – nicht verkaufen.</div>
+    </div>
+  </header>
+
+  <div class="filters" role="tablist" aria-label="Filter">
+    <button class="btn" role="tab" aria-pressed="true"  data-target="new">Neue Kontakte</button>
+    <button class="btn" role="tab" aria-pressed="false" data-target="known">Bekannte Kontakte</button>
+    <button class="btn" role="tab" aria-pressed="false" data-target="obj">Einwände</button>
+    <button class="btn" role="tab" aria-pressed="false" data-target="nogo">Was nicht geht</button>
+    <button class="btn" role="tab" aria-pressed="false" data-target="all">Alle zeigen</button>
+  </div>
+
+  <!-- Sektionen -->
+  <section class="section" data-sec="new">
+    <h2>Erster Kontakt (neue Kontakte)</h2>
+    <div class="pat"><h3>WhatsApp – ohne Vorgeschichte</h3><p class="muted">Kurz, freundlich, ohne Druck.</p>
+      <div class="ex" data-copy>„Hallo, ich bin XXXX – ich arbeite gerade an einem Projekt, bei dem man beim Online-Einkaufen automatisch Cashback erhält. Ich habe deine Nummer über eine Empfehlung bekommen und wollte kurz Hallo sagen – falls es passt.“</div>
+      <div class="copy"><button class="btn" data-copy-btn>Kopieren</button></div>
+      <div class="tip">Name • Quelle • Nutzen • Option zum Ablehnen.</div></div>
+    <div class="pat"><h3>Telefon / Sprachnachricht</h3><p class="muted">Unerwartet? Ruhig ansprechen und Wahl lassen.</p>
+      <div class="ex" data-copy>„Hi XXXX, hier ist XXXX. Ich weiß, das kommt überraschend – aber ich habe etwas entdeckt, bei dem man beim Einkaufen einfach Geld zurückbekommt. Wenn du magst, rufe ich kurz durch – oder schreib mir. Kein Stress, wenn’s gerade nicht passt!“</div>
+      <div class="copy"><button class="btn" data-copy-btn>Kopieren</button></div></div>
+  </section>
+
+  <section class="section" data-sec="known">
+    <h2>Wiedersehen (bekannte Kontakte)</h2>
+    <div class="pat"><h3>Follow-up nach erstem Gespräch</h3><p class="muted">Anknüpfen, Zeitrahmen, nächster Schritt.</p>
+      <div class="ex" data-copy>„Hi XXXX, danke für unser letztes Gespräch. Ich habe dir die Kurzinfo geschickt – sollen wir uns diese Woche 10 Minuten nehmen, um deine zwei Fragen zu klären?“</div>
+      <div class="copy"><button class="btn" data-copy-btn>Kopieren</button></div></div>
+    <div class="pat"><h3>Wiedervorlage (2–3 Wochen)</h3><p class="muted">Sanft erinnern, ohne Druck.</p>
+      <div class="ex" data-copy>„Hey XXXX, kurzer Ping: Soll ich dir die Kurzfassung noch mal schicken oder passt’s gerade nicht? Beides völlig okay.“</div>
+      <div class="copy"><button class="btn" data-copy-btn>Kopieren</button></div></div>
+    <div class="pat"><h3>Wärmekontakt (Bekannte / Freundeskreis)</h3><p class="muted">Beziehung vor Pitch.</p>
+      <div class="ex" data-copy>„Hey XXXX, kurzer Kontext: Ich nutze ein System, das beim normalen Einkaufen Geld zurückgibt. Wenn du neugierig bist, zeige ich’s dir bei Gelegenheit – und wenn nicht, alles fein.“</div>
+      <div class="copy"><button class="btn" data-copy-btn>Kopieren</button></div></div>
+    <div class="pat"><h3>Nach einem Event / Treffen</h3><p class="muted">Konkretes Andocken, kleiner CTA.</p>
+      <div class="ex" data-copy>„War schön gestern! Du meintest, du willst sparen beim Online-Shopping. Ich schicke dir 2 Screenshots – sag kurz, ob wir 5 Min für die Einrichtung nehmen.“</div>
+      <div class="copy"><button class="btn" data-copy-btn>Kopieren</button></div></div>
+    <div class="pat"><h3>Wiederbelebung (längerer Kontaktabbruch)</h3>
+      <div class="ex" data-copy>„Hi XXXX, lange nicht gesprochen. Ich habe etwas, das im Alltag ehrlich hilft (Cashback ohne Aufwand). Wenn du magst, schicke ich dir die Zusammenfassung – unverbindlich.“</div>
+      <div class="copy"><button class="btn" data-copy-btn>Kopieren</button></div></div>
+    <div class="pat"><h3>Leichte Empfehlung anfragen</h3>
+      <div class="ex" data-copy>„Wenn du gerade nicht willst: Kennst du zwei Leute, die viel online bestellen? Ich schicke dir einen Text, den du einfach weiterleiten kannst.“</div>
+      <div class="copy"><button class="btn" data-copy-btn>Kopieren</button></div></div>
+  </section>
+
+  <section class="section" data-sec="obj">
+    <h2>Einwände</h2>
+    <div class="pat"><h3>„Ich habe keine Zeit.“</h3>
+      <div class="ex" data-copy>„Verstehe ich total. Ich brauche nur zwei Minuten – und wenn es danach nicht passt, ist alles gut. Willst du’s trotzdem kurz hören?“</div>
+      <div class="copy"><button class="btn" data-copy-btn>Kopieren</button></div></div>
+    <div class="pat"><h3>„Ich habe kein Geld.“</h3>
+      <div class="ex" data-copy>„Kennt wohl jeder. Genau deshalb mag ich das System: Es kostet nichts, sondern spart Geld. Ich zeige es dir – dann siehst du, ob es für dich passt.“</div>
+      <div class="copy"><button class="btn" data-copy-btn>Kopieren</button></div></div>
+    <div class="pat"><h3>„Ich bin schon woanders aktiv.“</h3>
+      <div class="ex" data-copy>„Stark, dass du aktiv bist! Ich teile das nicht, um dich zum Wechseln zu bringen, sondern weil Cashback leicht zu übersehen ist. Interesse an der Kurzfassung?“</div>
+      <div class="copy"><button class="btn" data-copy-btn>Kopieren</button></div></div>
+    <div class="pat"><h3>„Kein Bedarf / später.“</h3>
+      <div class="ex" data-copy>„Alles gut. Ich gebe dir in zwei Wochen noch mal ein Update – oder sag Bescheid, wenn ein besserer Zeitpunkt ist.“</div>
+      <div class="copy"><button class="btn" data-copy-btn>Kopieren</button></div></div>
+    <div class="pat"><h3>„Ich will nichts verkaufen.“</h3>
+      <div class="ex" data-copy>„Verstehe ich. Hier geht’s zuerst um eigenes Sparen. Wenn du nur das nutzt, ist das schon sinnvoll.“</div>
+      <div class="copy"><button class="btn" data-copy-btn>Kopieren</button></div></div>
+  </section>
+
+  <section class="section" data-sec="nogo">
+    <h2>Was nicht geht</h2>
+    <div class="no">❌ „Ich melde dich schnell an!“ – wirkt unseriös und drückend.</div>
+    <div class="no">❌ „Das ist mein Business!“ – zu hart, kein Raum für Neugier.</div>
+    <div class="no">❌ „Kennst du mich noch?“ – setzt unnötigen Druck.</div>
+    <div class="no">❌ Schuldgefühle erzeugen („Du unterstützt mich doch, oder?“)</div>
+    <div class="no">❌ Abwertung anderer Netzwerke.</div>
+    <p class="note">Fokus immer auf dem, was wir anbieten – nicht auf dem, was andere falsch machen.</p>
+  </section>
+</div>
+
+<script>
+const $ = s => document.querySelector(s);
+const $$ = s => document.querySelectorAll(s);
+$('.filters').addEventListener('click', e=>{
+  const b = e.target.closest('.btn[data-target]');
+  if(!b) return;
+  const t = b.dataset.target;
+  $$('.filters .btn').forEach(x=>x.setAttribute('aria-pressed', String(x===b)));
+  $$('.section').forEach(sec=>sec.classList.toggle('hidden', t!=='all' && sec.dataset.sec!==t));
+  scrollTo({top:0,behavior:'smooth'});
+});
+document.addEventListener('click', e=>{
+  const btn = e.target.closest('[data-copy-btn]');
+  if(!btn) return;
+  const box = btn.closest('.pat').querySelector('[data-copy]');
+  if(!box) return;
+  const text = box.textContent.replace(/[„“]/g,'"');
+  navigator.clipboard.writeText(text).then(()=>{
+    btn.textContent='Kopiert ✓'; setTimeout(()=>btn.textContent='Kopieren',1200);
+  });
+});
+$$('.section').forEach(s=>s.classList.add('hidden'));
+$('[data-sec="new"]').classList.remove('hidden');
+</script>
+</body>
+</html>
