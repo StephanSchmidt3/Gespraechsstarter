@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gesprächsstarter – Buchungsbote</title>
+  <style>
+    :root{
+      --bg:#f9fbfd;           /* very light blue */
+      --text:#333333;         /* body text */
+      --muted:#5b6b82;        /* secondary text */
+      --brand:#5a8dee;        /* Elura-friendly blue */
+      --brand-ink:#2d5ecb;    /* darker brand */
+      --accent:#e2b842;       /* soft gold */
+      --card:#ffffff;         /* cards */
+      --line:#e7eef7;         /* separators */
+      --radius:14px;
+      --shadow:0 8px 24px rgba(20,45,90,.08);
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; background:var(--bg); color:var(--text);
+      font:500 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial, 'Apple Color Emoji','Segoe UI Emoji';
+    }
+
+    .wrap{max-width:920px; margin-inline:auto; padding:28px 18px 64px}
+
+    /* Header */
+    .hero{background:var(--card); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); padding:28px; margin:16px 0 22px}
+    .eyebrow{display:inline-flex; gap:8px; align-items:center; color:var(--muted); font-size:.9rem; letter-spacing:.06em; text-transform:uppercase}
+    .chip{padding:4px 10px; border-radius:999px; background:rgba(90,141,238,.12); color:var(--brand); border:1px solid rgba(90,141,238,.25)}
+    h1{margin:.4rem 0 .3rem; font-size:clamp(1.6rem, 1.2rem + 1.8vw, 2.4rem); color:#1b2a46}
+    .lead{margin:.35rem 0 0; color:var(--muted); max-width:62ch}
+
+    /* Accordion */
+    .accordion{margin:22px 0}
+    .acc-item{background:var(--card); border:1px solid var(--line); border-radius:12px; box-shadow:var(--shadow); overflow:hidden; margin-bottom:12px}
+
+    .acc-btn{width:100%; text-align:left; background:linear-gradient(0deg,#ffffff, #ffffff); color:#1b2a46; border:0; padding:16px 18px; display:flex; align-items:center; gap:12px; cursor:pointer}
+    .acc-btn:hover{background:linear-gradient(0deg,#ffffff, #f5f9ff)}
+    .acc-btn .title{font-weight:700}
+    .acc-btn .hint{color:var(--muted); font-weight:500; font-size:.95rem}
+    .acc-btn .chev{margin-left:auto; width:20px; height:20px; color:var(--brand); transition:transform .25s ease}
+    .acc-btn[aria-expanded="true"] .chev{transform:rotate(180deg)}
+
+    .acc-panel{display:none; border-top:1px solid var(--line); padding:14px 18px 18px; background:var(--card)}
+    .acc-panel.open{display:block}
+
+    /* Callouts */
+    .example{background:#eef5ff; border-left:4px solid var(--brand); padding:12px 14px; margin:10px 0; font-style:italic; border-radius:6px}
+    .tip{background:#eef9f4; border-left:4px solid #2bbf93; padding:10px 12px; margin:10px 0; font-size:.95rem; border-radius:6px}
+    .no-go{background:#fff5f5; border-left:4px solid #ef5350; padding:10px 12px; margin:10px 0; font-size:.95rem; border-radius:6px}
+
+    /* Table */
+    .table{width:100%; border-collapse:separate; border-spacing:0; border:1px solid var(--line); border-radius:10px; overflow:hidden}
+    .table th{background:#f3f7ff; color:#2c3a56; padding:12px; text-align:left}
+    .table td{padding:12px; border-top:1px solid var(--line)}
+
+    /* Badges */
+    .badge{display:inline-flex; align-items:center; gap:6px; font-size:.85rem; color:#1f2d4d; background:#fff; border:1px solid var(--line); border-radius:999px; padding:4px 10px}
+    .dot{width:8px; height:8px; background:var(--accent); border-radius:50%}
+
+    /* Footer */
+    .foot{background:linear-gradient(0deg,#fff, #f7fbff); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); padding:18px 20px; color:#23324e; margin-top:18px}
+
+    /* Links */
+    a{color:var(--brand)}
+    a:hover{color:var(--brand-ink)}
+
+    @media (max-width:640px){
+      .wrap{padding:18px 14px 48px}
+      .acc-btn{padding:14px 14px}
+      .acc-panel{padding:12px 14px 14px}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <!-- Header -->
+    <header class="hero">
+      <div class="eyebrow"><span class="chip">Toolkit</span> Gesprächsstarter</div>
+      <h1>Beginne Gespräche, die verbinden – nicht verkaufen.</h1>
+      <p class="lead">Klar, freundlich, druckfrei: Diese kompakten Vorlagen helfen dir beim ersten Satz, beim Umgang mit Einwänden und bei einem professionellen Abschluss.</p>
+    </header>
+
+    <!-- Accordion -->
+    <section class="accordion" id="acc">
+
+      <!-- Item 1: Erster Kontakt -->
+      <article class="acc-item">
+        <button class="acc-btn" aria-expanded="true" aria-controls="p1" id="b1">
+          <span class="badge"><span class="dot"></span> 📱 Erster Kontakt</span>
+          <span class="title">Was sage ich beim ersten Anschreiben oder Anruf?</span>
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="acc-panel open" id="p1" role="region" aria-labelledby="b1">
+          <h3 style="margin:.25rem 0 .35rem">WhatsApp – ohne Vorgeschichte</h3>
+          <div class="example">„Hallo, ich bin Anna – ich arbeite gerade an einem Projekt, bei dem man beim Online‑Einkaufen automatisch Cashback bekommt. Ich habe deine Nummer über eine Empfehlung erhalten und wollte kurz Hallo sagen – falls es passt.“</div>
+          <div class="tip">✅ <strong>Warum es funktioniert:</strong> Klarer Rahmen (Name, Quelle, Nutzen) und explizit <em>ohne Druck</em>.</div>
+
+          <h3 style="margin:1rem 0 .35rem">Telefon / Sprachnachricht</h3>
+          <div class="example">„Hi Max, hier ist Anna. Ich weiß, das kommt überraschend – aber ich habe etwas entdeckt, bei dem man beim Einkaufen einfach Geld zurückbekommt – automatisch. Ich teile das mit ein paar Leuten, die es praktisch finden könnten. Wenn du magst, rufe ich gern zurück – oder schreib mir kurz. Kein Stress, wenn’s gerade nicht passt!“</div>
+          <div class="tip">✅ <strong>Warum es funktioniert:</strong> Situation anerkennen, Nutzen nennen, Entscheidung beim Gegenüber lassen.</div>
+        </div>
+      </article>
+
+      <!-- Item 2: Wiedersehen -->
+      <article class="acc-item">
+        <button class="acc-btn" aria-expanded="false" aria-controls="p2" id="b2">
+          <span class="badge"><span class="dot"></span> 🤝 Wiedersehen</span>
+          <span class="title">Follow‑up, wenn bereits Kontakt bestand</span>
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="acc-panel" id="p2" role="region" aria-labelledby="b2">
+          <div class="example">„Hi Lea, danke für unser letztes Gespräch. Ich habe dir die Kurzinfo geschickt – sollen wir uns diese Woche 10 Minuten nehmen, um die zwei Fragen zu klären?“</div>
+          <div class="tip">✅ <strong>Warum es funktioniert:</strong> Anknüpfen, Zeitrahmen setzen, klarer nächster Schritt.</div>
+        </div>
+      </article>
+
+      <!-- Item 3: Einwände -->
+      <article class="acc-item">
+        <button class="acc-btn" aria-expanded="false" aria-controls="p3" id="b3">
+          <span class="badge"><span class="dot"></span> 🛠️ Einwände</span>
+          <span class="title">Souverän & empathisch reagieren</span>
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="acc-panel" id="p3" role="region" aria-labelledby="b3">
+          <table class="table" role="table" aria-label="Einwände und Antworten">
+            <thead><tr><th>Einwand</th><th>Antwort</th></tr></thead>
+            <tbody>
+              <tr>
+                <td><strong>„Ich habe keine Zeit.“</strong></td>
+                <td>„Verstehe ich total. Ich brauche nur zwei Minuten – und wenn es danach nicht passt, ist alles gut. Willst du’s trotzdem kurz hören?“</td>
+              </tr>
+              <tr>
+                <td><strong>„Ich habe kein Geld.“</strong></td>
+                <td>„Kennt wohl jeder. Genau deshalb mag ich das System: Es kostet nichts, sondern spart Geld. Ich zeige es dir – dann siehst du, ob es etwas für dich ist.“</td>
+              </tr>
+              <tr>
+                <td><strong>„Ich bin schon woanders aktiv.“</strong></td>
+                <td>„Stark, dass du aktiv bist! Ich teile das nicht, um dich zum Wechseln zu bringen, sondern weil Cashback leicht zu übersehen ist. Interesse an der Kurzfassung?“</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+
+      <!-- Item 4: Was nicht geht -->
+      <article class="acc-item">
+        <button class="acc-btn" aria-expanded="false" aria-controls="p4" id="b4">
+          <span class="badge"><span class="dot"></span> 🚫 Was nicht geht</span>
+          <span class="title">Sätze, die Türen schließen</span>
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="acc-panel" id="p4" role="region" aria-labelledby="b4">
+          <div class="no-go">❌ „Ich melde dich schnell an!“ – wirkt unseriös und drückend.</div>
+          <div class="no-go">❌ „Das ist mein Business!“ – zu hart, kein Raum für Neugier.</div>
+          <div class="no-go">❌ „Kennst du mich noch?“ – setzt unnötigen Druck.
+          </div>
+        </div>
+      </article>
+
+    </section>
+
+    <!-- Footer Card -->
+    <section class="foot">
+      <strong style="color:#1b2a46">🎯 Dein Gewinn</strong>
+      <p style="margin:.4rem 0 0">Mit diesen Vorlagen startest du Gespräche, die sich <strong>nach Verbindung</strong> anfühlen – nicht nach Verkauf. Buchungsbote hilft dir nicht nur beim Termin, sondern auch beim <strong>richtigen Einstieg</strong>.</p>
+    </section>
+  </div>
+
+  <script>
+    const items = document.querySelectorAll('.acc-item');
+    items.forEach(item => {
+      const btn = item.querySelector('.acc-btn');
+      const panel = item.querySelector('.acc-panel');
+      btn.addEventListener('click', () => {
+        const isOpen = panel.classList.contains('open');
+        btn.setAttribute('aria-expanded', String(!isOpen));
+        panel.classList.toggle('open');
+      });
+    });
+  </script>
+</body>
+</html>
